@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="99dcce1d-bde8-45ec-bd5c-41a1bc42b4e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DCBC/Icosahedron-162.32k.L.label.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/Icosahedron-162.32k.R.label.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/medialWallIndex_L.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/medialWallIndex_R.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/nullModel_rotated_162_L.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s02/s02.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s02/s02.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s02/s02.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s02/s02.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s03/s03.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s03/s03.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s03/s03.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s03/s03.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s04/s04.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s04/s04.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s04/s04.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s04/s04.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s06/s06.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s06/s06.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s06/s06.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s06/s06.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s08/s08.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s08/s08.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s08/s08.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s08/s08.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s09/s09.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s09/s09.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s09/s09.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s09/s09.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s10/s10.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s10/s10.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s10/s10.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s10/s10.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s12/s12.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s12/s12.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s12/s12.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s12/s12.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s14/s14.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s14/s14.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s14/s14.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s14/s14.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s15/s15.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s15/s15.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s15/s15.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s15/s15.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s17/s17.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s17/s17.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s17/s17.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s17/s17.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s18/s18.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s18/s18.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s18/s18.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s18/s18.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s19/s19.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s19/s19.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s19/s19.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s19/s19.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s20/s20.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s20/s20.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s20/s20.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s20/s20.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s21/s21.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s21/s21.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s21/s21.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s21/s21.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s22/s22.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s22/s22.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s22/s22.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s22/s22.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s24/s24.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s24/s24.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s24/s24.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s24/s24.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s25/s25.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s25/s25.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s25/s25.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s25/s25.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s26/s26.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s26/s26.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s26/s26.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s26/s26.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s27/s27.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s27/s27.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s27/s27.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s27/s27.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s28/s28.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s28/s28.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s28/s28.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s28/s28.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s29/s29.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s29/s29.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s29/s29.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s29/s29.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s30/s30.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s30/s30.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s30/s30.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s30/s30.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s31/s31.L.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s31/s31.L.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s31/s31.R.sc1.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/s31/s31.R.sc2.con.32k.func.gii" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCBC/sc1_sc2_taskConds.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eval_DCBC.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_DCBC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/DCBC_evaluation$sample.coverage" NAME="sample Coverage Results" MODIFIED="1615844740348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DCBC_evaluation$DCBC_evaluation.coverage" NAME="DCBC_evaluation Coverage Results" MODIFIED="1615846183987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/DCBC_evaluation$eval_others.coverage" NAME="eval_others Coverage Results" MODIFIED="1614665357997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DCBC_evaluation$plotting.coverage" NAME="plotting Coverage Results" MODIFIED="1615843425854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DCBC_evaluation$eval_DCBC.coverage" NAME="eval_DCBC Coverage Results" MODIFIED="1615265951090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1082359304">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="ipynb" value="2" />
+          <entry key="py" value="23" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="IPNB" value="2" />
+          <entry key="Python" value="23" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="2802" />
+          <entry key="py" value="7563" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="10365" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eval_DCBC.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-179">
+              <caret line="244" column="68" selection-start-line="244" selection-start-column="12" selection-end-line="244" selection-end-column="68" />
+              <folding>
+                <element signature="e#1582#1591#0" expanded="true" />
+                <marker date="1615267644137" expanded="true" signature="4187:5787" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plotting.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#253#271#0" expanded="true" />
+                <marker date="1615844740301" expanded="true" signature="456:461" ph="..." />
+                <marker date="1615844740301" expanded="true" signature="456:1345" ph="..." />
+                <marker date="1615844740301" expanded="true" signature="2485:2490" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python36/Lib/site-packages/matplotlib/pyplot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="253" selection-start-line="253" selection-end-line="253" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sample.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python36/Lib/site-packages/sklearn/cluster/spectral.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8092">
+              <caret line="486" column="42" selection-start-line="486" selection-start-column="23" selection-end-line="486" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+              <folding>
+                <element signature="e#190#216#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/lib/function_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78931">
+              <caret line="4643" selection-start-line="4643" selection-end-line="4643" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/lib/nanfunctions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14501">
+              <caret line="859" selection-start-line="859" selection-end-line="859" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/core/fromnumeric.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34459">
+              <caret line="2041" selection-start-line="2041" selection-end-line="2041" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>distmin</find>
+      <find>parcels</find>
+      <find>parcellation</find>
+      <find>hems</find>
+      <find>binWidth</find>
+      <find>spectral_clustering</find>
+      <find>scan_subdirs</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/DCBC/plotting.py" />
+        <option value="$PROJECT_DIR$/eval_others.py" />
+        <option value="$PROJECT_DIR$/eval_DCBC.py" />
+        <option value="$PROJECT_DIR$/sample.py" />
+        <option value="$PROJECT_DIR$/plotting.py" />
+        <option value="$PROJECT_DIR$/sample.ipynb" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="548" />
+    <option name="y" value="41" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DCBC_evaluation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DCBC_evaluation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DCBC_evaluation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DCBC_evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="distanceMatrix" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.sample">
+    <configuration name="DCBC_evaluation" type="JupiterNotebook" factoryName="Jupyter Notebook">
+      <module name="DCBC_evaluation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files\Python36\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="additionalOptions" value="" />
+      <option name="ipnbHost" value="127.0.0.1" />
+      <option name="ipnbPort" value="8888" />
+      <method v="2" />
+    </configuration>
+    <configuration name="eval_DCBC" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DCBC_evaluation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval_DCBC.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="eval_others" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DCBC_evaluation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval_others.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plotting" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DCBC_evaluation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plotting.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DCBC_evaluation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jupyter Notebook.DCBC_evaluation" />
+      <item itemvalue="Python.plotting" />
+      <item itemvalue="Python.eval_others" />
+      <item itemvalue="Python.eval_DCBC" />
+      <item itemvalue="Python.sample" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sample" />
+        <item itemvalue="Python.plotting" />
+        <item itemvalue="Python.eval_DCBC" />
+        <item itemvalue="Python.eval_others" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99dcce1d-bde8-45ec-bd5c-41a1bc42b4e3" name="Default Changelist" comment="" />
+      <created>1605726544282</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605726544282</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17381974" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.2972103" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.19849785" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.29904053" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plotting.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DCBC/plotting.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_others.py" />
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/nibabel/loadsave.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/scipy/sparse/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="213" selection-start-line="213" selection-end-line="213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/scipy/sparse/_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="331" selection-start-line="331" selection-end-line="331" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/scipy/sparse/compressed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="695" selection-start-line="695" selection-end-line="695" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/warnings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_91f59d3d43c534df2fa6c83ecba27afa-d421a351a3a69e45ada9cd9e9e7cd414be065368.zip/91f59d3d43c534df2fa6c83ecba27afa-d421a351a3a69e45ada9cd9e9e7cd414be065368/sample.ipynb" />
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/sklearn/cluster/spectral.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8092">
+          <caret line="486" column="42" selection-start-line="486" selection-start-column="23" selection-end-line="486" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78931">
+          <caret line="4643" selection-start-line="4643" selection-end-line="4643" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/lib/nanfunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14501">
+          <caret line="859" selection-start-line="859" selection-end-line="859" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34459">
+          <caret line="2041" selection-start-line="2041" selection-end-line="2041" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="253" selection-start-line="253" selection-end-line="253" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#190#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_DCBC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-179">
+          <caret line="244" column="68" selection-start-line="244" selection-start-column="12" selection-end-line="244" selection-end-column="68" />
+          <folding>
+            <element signature="e#1582#1591#0" expanded="true" />
+            <marker date="1615267644137" expanded="true" signature="4187:5787" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#253#271#0" expanded="true" />
+            <marker date="1615844740301" expanded="true" signature="456:461" ph="..." />
+            <marker date="1615844740301" expanded="true" signature="456:1345" ph="..." />
+            <marker date="1615844740301" expanded="true" signature="2485:2490" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
