@@ -32,11 +32,9 @@ Author: Da Zhi
 
 import os
 import numpy as np
-import scipy.io as spio
 import scipy
-from scipy.sparse import find
+import scipy.io as spio
 import nibabel as nb
-from sklearn.metrics.pairwise import euclidean_distances, cosine_similarity
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -146,64 +144,16 @@ def compute_var_cov(data, cond='all', mean_centering=True):
     return cov, var
 
 
-def compute_corr(data, cond='all', kernel='Pearson', mean_centering=True):
-    """
-        Compute the affinity matrix by given kernel type,
-        default to calculate Pearson's correlation between all vertex pairs
-
-        :param data: subject's connectivity profile, shape [N * k]
-                     N - the size of vertices (voxel)
-                     k - the size of activation conditions
-        :param cond: specify the subset of activation conditions to evaluation
-                    (e.g condition column [1,2,3,4]),
-                     if not given, default to use all conditions
-        :param kernel: the kernel type used to calculate the affinity matrix,
-                       default is Pearson's correlation
-        :param mean_centering: boolean value to determine whether the given subject data
-                               should be mean centered
-
-        :return: R - the affinity matrix of current subject data. [N * N]
-    """
-
-    # mean centering of the subject beta weights
-    if mean_centering:
-        mean = data.mean(axis=1)
-        data = data - mean[:, np.newaxis]  # mean centering
-    else:
-        data = data
-
-    # specify the condition index used to compute correlation, otherwise use all conditions
-    if cond is not 'all':
-        data = data[:, cond]
-    elif cond is 'all':
-        data = data
-    else:
-        raise TypeError("Invalid condition type input! cond must be either 'all'"
-                        " or the column indices of expected task conditions")
-
-    # Choose appropriate kernel type, default = pearson's correlation
-    if kernel == 'Pearson':
-        R = np.corrcoef(data)
-    elif kernel == 'cosine':
-        R = cosine_similarity(data)
-    elif kernel == 'eclidean':
-        R = 1 - euclidean_distances(data)
-    else:
-        raise Exception('The kernel type is not supported.')
-
-    return R
-
-
 class DCBC:
     def __init__(self, hems='all', maxDist=35, binWidth=1, parcellation=np.empty([]),
-                 distType='Sphere', weighting=True):
+                 dist_file=None, weighting=True):
         """
         Constructor of DCBC class
         :param hems:        Hemisphere to test. 'L' - left hemisphere; 'R' - right hemisphere; 'all' - both hemispheres
         :param maxDist:     The maximum distance for vertices pairs
         :param binWidth:    The spatial binning width in mm, default 1 mm
         :param parcellation:
-        :param distType:    The distance metric of vertices pairs, for example Dijkstra's distance, GOD distance
+        :param dist_file:   The path of distance metric of vertices pairs, for example Dijkstra's distance, GOD distance
                             Euclidean distance. Dijkstra's distance as default
         :param weighting:   Boolean value. True - add weighting scheme to DCBC (default)
                                            False - no weighting scheme to DCBC
@@ -212,7 +162,7 @@ class DCBC:
         self.maxDist = maxDist
         self.binWidth = binWidth
         self.parcellation = parcellation
-        self.distType = distType
+        self.dist_file = dist_file
         self.weighting = weighting
 
     def evaluate(self, parcellation):
@@ -225,16 +175,12 @@ class DCBC:
         numBins = int(np.floor(self.maxDist / self.binWidth))
         subjectsDir = scan_subdirs('data')
 
-        if self.distType is 'Dijkstra':
-            dist = spio.loadmat("distanceMatrix/distAvrg_sp.mat")['avrgDs']
-            dist = dist.astype('float16')
-            dist = dist.tocsr()
-        elif self.distType is 'Sphere':
-            dist = spio.loadmat("distanceMatrix/distSphere_sp.mat")['avrgDs']
+        if self.dist_file is not None:
+            dist = spio.loadmat(self.dist_file)['avrgDs']
             dist = dist.astype('float16')
             dist = dist.tocsr()
         else:
-            raise TypeError("Distance type cannot be recognized!")
+            raise TypeError("Distance file cannot be found!")
 
         # Determine which hemisphere shall be evaluated
         if self.hems is 'all':
@@ -246,8 +192,9 @@ class DCBC:
 
         D = dict()
         for h in hems:
+            print('evaluating %s hemisphere of ' % h, end=' ')
             for dir in subjectsDir:
-                print('evaluating %s %s ...' % (dir, h))
+                print('%s ' % dir, end=' ')
                 path = os.path.join('data', dir)
                 data = load_subjectData(path, hemis=h)
 
@@ -259,7 +206,7 @@ class DCBC:
                 # remove the nan value and medial wall from dist file
                 this_dist = delete_rows_csr(dist, nanIdx)
                 this_dist = delete_cols_csr(this_dist, nanIdx)
-                row, col, distance = find(this_dist)
+                row, col, distance = scipy.sparse.find(this_dist)
 
                 # making parcellation matrix without medial wall and nan value
                 par = np.delete(parcellation, nanIdx, axis=0)
@@ -303,6 +250,7 @@ class DCBC:
                     "DCBC": DCBC
                 }
 
+            print('\n Done evaluation of %s hemisphere.' % h)
         return D
 
 

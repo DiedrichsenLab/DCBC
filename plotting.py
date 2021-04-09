@@ -5,12 +5,8 @@ Created on Thu Feb 25 10:15:48 2021
 
 Plotting DCBC curves
 
-INPUTS:
-struct:               DCBC evaluation result
-
-
-OUTPUT:
-The figure of within- and between parcels correlation curve
+INPUTS:     struct: DCBC evaluation result
+OUTPUT:     The figure of within- and between parcels correlation curve
 
 Author: Da Zhi
 '''
