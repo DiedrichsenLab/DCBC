@@ -97,11 +97,11 @@ including `fs_LR.32k.X.pial.surf.gii` and `fs_LR.32k.X.white.surf.gii` (white an
 to surface mapping.
 
 
-### Reference and License
+## Reference and License
 
 Please find out our development license (MIT) in `LICENSE` file.
 
-### Bugs and questions
+## Bugs and questions
 
 Please contact Da at dzhi@uwo.ca if you have any questions about this repository.
 
