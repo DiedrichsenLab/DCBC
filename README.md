@@ -5,7 +5,7 @@ Diedrichsen Lab, Western University
 This repository is the toolbox of the paper "New evaluation criterion for brain functional parcellation methods using a multi-domain task battery". It contains all the functions needed to evaluation given cortical parcellations. See the [paper](http://www.diedrichsenlab.org/) for more details.
 
 ### Installation and dependencies
-This project depends on several third party libraries, including: [nibabel](https://nipy.org/nibabel/) (version=2.4), [scipy](https://www.scipy.org/) (version=1.3.1), [numpy](https://numpy.org/) (version=1.17.4), and [matplotlib](https://matplotlib.org/) (version=3.0.2)
+This project depends on several third party libraries, including: [nibabel](https://nipy.org/nibabel/) (version>=2.4), [scipy](https://www.scipy.org/) (version>=1.3.1), [numpy](https://numpy.org/) (version>=1.17.4), and [matplotlib](https://matplotlib.org/) (version>=3.0.2)
 
 	pip install nibabel scipy numpy matplotlib
 
@@ -14,7 +14,7 @@ Or you can install the package manually from the original binary source as above
 
 ### Structure of the DCBC project
 
-the default setting has two overlays (test.func.gii, test2.func.gii), which can be found in onlineAtlas folder.
+The default structure of DCBC project, including the scripts, parcellations, raw fMRI data, and etc. as follows
 
     project/
     │   README.md
