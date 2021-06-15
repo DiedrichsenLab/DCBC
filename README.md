@@ -2,7 +2,7 @@
 
 Diedrichsen Lab, Western University
 
-This repository is the toolbox of the paper "New evaluation criterion for brain functional parcellation methods using a multi-domain task battery". It contains all the functions needed to evaluation given cortical parcellations. See the [paper](http://www.diedrichsenlab.org/) for more details.
+This repository is the toolbox of the paper "Evaluating brain parcellations using the distance controlled boundary coefficient". It contains all the functions needed to evaluation given cortical parcellations. See the [paper](https://www.biorxiv.org/content/10.1101/2021.05.11.443151v1) for more details.
 
 ### Installation and dependencies
 This project depends on several third party libraries, including: [nibabel](https://nipy.org/nibabel/) (version>=2.4), [scipy](https://www.scipy.org/) (version>=1.3.1), [numpy](https://numpy.org/) (version>=1.17.4), and [matplotlib](https://matplotlib.org/) (version>=3.0.2)
