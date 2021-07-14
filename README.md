@@ -61,14 +61,14 @@ Each of the hemisphere data has a shape of `(N, k)` matrix, where `N` indicates 
 
 User can put own distance metrics file into `distanceMarix` folder. Unfortunately, github is not allow us to upload large files but you can still use `compute_distance` function to calculate your own distance metrics.
 
-For download our pre-computed distance that used in the paper, please go to [distances](http://www.diedrichsenlab.org/).
+For download our pre-computed distance that used in the paper, please go to [here](http://www.diedrichsenlab.org/toolboxes/toolbox_dcbc.htm).
 
 
 **4. Parcellations**
 
 We summarized several commonly-used cortical parcellations and converted them all into standard HCP fs-LR 32k template in `parcellations` folder. 
 
-You can also find the 32k template files `fs_LR.32k.X.sphere.surf.gii` or `fs_LR.32k.X.midthickness.surf.gii` in the sub-folder. We also organised some parcellations if they provide multiple resolutions and it's a good example to test DCBC evaluation is robust across different resolutions.
+You can also find the 32k template files `fs_LR.32k.X.sphere.surf.gii` or `fs_LR.32k.X.midthickness.surf.gii` in the sub-folder (X = L or R, representing left or right hemisphere). We also organised some parcellations if they provide multiple resolutions and it's a good example to test DCBC evaluation is robust across different resolutions.
 
 
 ### Usage example
