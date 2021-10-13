@@ -11,7 +11,7 @@ import scipy as sp
 from eval_DCBC import compute_var_cov
 import nibabel as nb
 import mat73
-from nilearn.masking import apply_mask
+from plotting import plot_single
 
 
 def sub2ind(array_shape, rows, cols):
@@ -29,23 +29,21 @@ def ind2sub(array_shape, ind):
     return rows, cols
 
 
-def compute_dist(mask_file, resolution=2):
+def compute_dist(coord, resolution=2):
     """
     calculate the distance matrix between each of the voxel pairs by given mask file
-    :param mask:
-    :param resolution:
+
+    :param coord: the ndarray of all N voxels coordinates x,y,z. Shape N * 3
+    :param resolution: the resolution of .nii file. Default 2*2*2 mm
+
     :return: a distance matrix of N * N, where N represents the number of masked voxels
     """
-    mask = nb.load(mask_file).get_data()
-    coord = np.nonzero(mask.astype(int))
-    x, y, z = coord[0], coord[1], coord[2]
-    num_vol = len(x)
-    dist = np.zeros((num_vol, num_vol))
-    for i in range(len(x)):
-        for j in range(len(x)):
-            dist[i][j] = np.sqrt((x[i]-x[j]) ^ 2 + (y[i]-y[j]) ^ 2 + (z[i]-z[j]) ^ 2)
 
-    return dist
+    num_points = coord.shape[0]
+    D = np.zeros((num_points, num_points))
+    for i in range(3):
+        D = D + (coord[:, i].reshape(-1, 1) - coord[:, i]) ** 2
+    return np.sqrt(D) * resolution
 
 
 def compute_DCBC(maxDist=35, binWidth=1, parcellation=np.empty([]),
@@ -116,26 +114,3 @@ def compute_DCBC(maxDist=35, binWidth=1, parcellation=np.empty([]),
     }
 
     return D
-
-
-if __name__ == "__main__":
-    print('Start evaluating DCBC sample code ...')
-
-    # Load parcellation given the mask file
-    parcels = apply_mask('D:/data/sc2/encoding/glm7/spect/masked_par_choi_7.nii.gz',
-                         'D:/data/sc2/encoding/glm7/spect/striatum_mask_2mm.nii')
-
-    # Compute the distance matrix between voxel pairs using the mask file
-    dist = compute_dist('D:/data/sc2/encoding/glm7/spect/striatum_mask_2mm.nii', 2)
-
-
-    # Load functional profile (betas) to calculate the correlations of voxel pairs
-    vol_ind = mat73.loadmat('D:/data/sc2/encoding/glm7/striatum_avrgDataStruct.mat')['volIndx']
-    vol_ind = vol_ind.astype(int)
-
-    masked_data = apply_mask('D:/data/sc2/encoding/glm7/spect/masked_par_choi_7.nii.gz','D:/data/sc2/encoding/glm7/spect/striatum_mask_2mm.nii')
-
-    T = compute_DCBC(hems='L', maxDist=35, binWidth=1).evaluate(parcels)
-
-    plot_wb_curve(T, path='data', hems='all')
-    print('Done')

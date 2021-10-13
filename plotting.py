@@ -15,6 +15,27 @@ import matplotlib.pyplot as plt
 from eval_DCBC import scan_subdirs
 
 
+def plot_single(within, between, subjects, maxDist=35, binWidth=1,
+                within_color='k', between_color='r'):
+    fig = plt.figure()
+
+    # Obtain basic info from evaluation result
+    numBins = int(np.floor(maxDist / binWidth))
+    num_sub = len(subjects)
+    x = np.arange(0, maxDist, binWidth) + binWidth / 2
+
+    y_within = within.reshape(num_sub, -1)
+    y_between = between.reshape(num_sub, -1)
+
+    plt.errorbar(x, y_within.mean(0), yerr=y_within.std(0), ecolor=within_color, color=within_color,
+                 elinewidth=0.5, capsize=2, linestyle='dotted', label='within')
+    plt.errorbar(x, y_between.mean(0), yerr=y_between.std(0), ecolor=between_color, color=between_color,
+                 elinewidth=0.5, capsize=2, linestyle='dotted', label='between')
+
+    plt.legend(loc='upper right')
+    plt.show()
+
+
 def plot_wb_curve(T, path, sub_list=None, hems='all', within_color='k', between_color='r'):
     fig = plt.figure()
 
