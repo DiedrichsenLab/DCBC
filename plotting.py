@@ -12,7 +12,7 @@ Author: Da Zhi
 '''
 import numpy as np
 import matplotlib.pyplot as plt
-from eval_DCBC import scan_subdirs
+from DCBC.eval_DCBC import scan_subdirs
 
 
 def plot_single(within, between, subjects, maxDist=35, binWidth=1,
@@ -62,7 +62,7 @@ def plot_wb_curve(T, path, sub_list=None, hems='all', within_color='k', between_
     y_within, y_between = np.empty([1, k]), np.empty([1, k])
     for sub in subjects_dir:
         data = [value for key, value in T.items() if sub in key]
-        if len(data) == 2 and hems is 'all':
+        if len(data) == 2 and (hems == 'all'):
             within = (np.asarray(data[0]["corr_within"]) + np.asarray(data[1]["corr_within"])) / 2
             between = (np.asarray(data[0]["corr_between"]) + np.asarray(data[1]["corr_between"])) / 2
         elif len(data) == 1 and data[0]["hemisphere"] is hems:

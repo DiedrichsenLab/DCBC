@@ -128,9 +128,9 @@ def compute_var_cov(data, cond='all', mean_centering=True):
         data = data
 
     # specify the condition index used to compute correlation, otherwise use all conditions
-    if cond is not 'all':
+    if cond != 'all':
         data = data[:, cond]
-    elif cond is 'all':
+    elif cond == 'all':
         data = data
     else:
         raise TypeError("Invalid condition type input! cond must be either 'all'"
@@ -183,9 +183,9 @@ class DCBC:
             raise TypeError("Distance file cannot be found!")
 
         # Determine which hemisphere shall be evaluated
-        if self.hems is 'all':
+        if self.hems == 'all':
             hems = ['L', 'R']
-        elif self.hems is 'L' or 'R':
+        elif (self.hems == 'L') or (self.hems == 'R'):
             hems = [self.hems]
         else:
             raise TypeError("Hemisphere type cannot be recognized!")
