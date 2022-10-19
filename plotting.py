@@ -12,7 +12,7 @@ Author: Da Zhi
 '''
 import numpy as np
 import matplotlib.pyplot as plt
-from eval_DCBC import scan_subdirs
+from DCBC.eval_DCBC import scan_subdirs
 
 
 def plot_single(within, between, subjects, maxDist=35, binWidth=1,

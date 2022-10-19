@@ -8,10 +8,10 @@ Author: DZHI
 '''
 import numpy as np
 import scipy as sp
-from eval_DCBC import compute_var_cov
+from DCBC.eval_DCBC import compute_var_cov
 import nibabel as nb
 import mat73
-from plotting import plot_single
+from DCBC.plotting import plot_single
 
 
 def sub2ind(array_shape, rows, cols):
