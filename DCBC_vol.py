@@ -65,26 +65,24 @@ def compute_DCBC(maxDist=35, binWidth=1, parcellation=np.empty([]),
     cov, var = compute_var_cov(func)
     # cor = np.corrcoef(func)
 
-    # remove the nan value and medial wall from dist file
-    row, col, distance = sp.sparse.find(dist)
-
-    # making parcellation matrix without medial wall and nan value
+    # 
     par = parcellation
     num_within, num_between, corr_within, corr_between = [], [], [], []
     for i in range(numBins):
-        inBin = np.where((distance > i * binWidth) & (distance <= (i + 1) * binWidth))[0]
+        inBin = ((dist > i * binWidth) & (dist <= (i + 1) * binWidth))
 
         # lookup the row/col index of within and between vertices
-        within = np.where((par[row[inBin]] == par[col[inBin]]) == True)[0]
-        between = np.where((par[row[inBin]] == par[col[inBin]]) == False)[0]
+        same = np.equal(par.reshape(-1,1),par.reshape(1,-1))
 
         # retrieve and append the number of vertices for within/between in current bin
-        num_within = np.append(num_within, within.shape[0])
-        num_between = np.append(num_between, between.shape[0])
+        within = inBin & same
+        between = inBin & np.logical_not(same)
+        num_within = np.append(num_within, (within).sum())
+        num_between = np.append(num_between, (between).sum())
 
         # Compute and append averaged within- and between-parcel correlations in current bin
-        this_corr_within = np.nanmean(cov[row[inBin[within]], col[inBin[within]]]) / np.nanmean(var[row[inBin[within]], col[inBin[within]]])
-        this_corr_between = np.nanmean(cov[row[inBin[between]], col[inBin[between]]]) / np.nanmean(var[row[inBin[between]], col[inBin[between]]])
+        this_corr_within = np.nanmean(cov[within]) / np.nanmean(var[within])
+        this_corr_between = np.nanmean(cov[between]) / np.nanmean(var[between])
 
         # this_corr_within = np.nanmean(cor[row[inBin[within]], col[inBin[within]]])
         # this_corr_between = np.nanmean(cor[row[inBin[between]], col[inBin[between]]])
