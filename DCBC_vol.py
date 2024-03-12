@@ -9,8 +9,6 @@ Author: DZHI
 import numpy as np
 import scipy as sp
 from DCBC.eval_DCBC import compute_var_cov
-import nibabel as nb
-import mat73
 from DCBC.plotting import plot_single
 
 
