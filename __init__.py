@@ -6,7 +6,6 @@ Author: dzhi
 """
 __all__ = ['compute_distance',
            'compute_similarity',
-           'DCBC_vol',
            'eval_DCBC',
            'plotting',
-           'full_model']
+           'full_model'] # user needs to manually import DCBC_vol if using numpy and DCBC_vol_pt if using pytorch
