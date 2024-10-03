@@ -1,46 +1,27 @@
-# DCBC evaluation
+## DCBC evaluation
 
 Diedrichsen Lab, Western University
 
 This repository is the toolbox of the paper "Evaluating brain parcellations using the distance controlled boundary coefficient". It contains all the functions needed to evaluation given cortical parcellations. See the [paper](https://www.biorxiv.org/content/10.1101/2021.05.11.443151v1) for more details.
 
-## Reference
-
-Please cite this article if using this toolbox:
-
-- Zhi, D., King, M., Hernandez‐Castillo, C. R., & Diedrichsen, J. (2022). Evaluating brain parcellations using the distance‐controlled boundary coefficient. Human Brain Mapping, 43(12), 3706-3720.
-
-## Installation and dependencies
+### Installation and dependencies
 This project depends on several third party libraries, including: [nibabel](https://nipy.org/nibabel/) (version>=2.4), [scipy](https://www.scipy.org/) (version>=1.3.1), [numpy](https://numpy.org/) (version>=1.17.4), and [matplotlib](https://matplotlib.org/) (version>=3.0.2)
 
 	pip install nibabel scipy numpy matplotlib
 
+
 Or you can install the package manually from the original binary source as above links.	
-Once you clone the functional fusion repository, you need to add it to your PYTHONPATH, so you can import the functionality.
 
-    PYTHONPATH=<your_repo_absolute_path>/HierarchBayesParcel:${PYTHONPATH}
-    export PYTHONPATH
-
-To use GPU acceleration, please ensure to install the compatible PyTorch and CUDA version. Details can be found
-at the official PyTorch webpage at https://pytorch.org/. This example was written with `torch_version=1.13` and
-`CUDA_version=1.16`. For example,
-
-    pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
-
-## Structure of the DCBC project
+### Structure of the DCBC project
 
 The default structure of DCBC project, including the scripts, parcellations, raw fMRI data, and etc. as follows
 
     project/
     │   README.md
-    │   dcbc.py
-    │   utilities.py
+    │   eval_DCBC.py
+    │   plotting.py
     │   ...
-    │   __init__.py
-    └───examples/
-    │       example.py
-    │       example_cortex.ipynb
-    │       ...
+    │   sample.ipynb
     │
     └───distanceMatrix/
     │       disAvrg_sp.mat
@@ -59,48 +40,46 @@ The default structure of DCBC project, including the scripts, parcellations, raw
     │       ...
     │       s31
 
-### 1. Function files description
+**1. Function files description**
 
-The project is designed in a simple flat fashion where all needed functions are stored in either
+The project is designed in a flatten fashion where all needed functions are stored in each .py files under root directory, including,
 
-- `utilities.py` files: which contains all necessary functions to support DCBC calculation
-- `dcbc.py`: contains the main (entry) function for DCBC calculation
+`compute_distance.py` contains the necessary functions to compute distance metrics of expected kernel.\
+`compute_similarity.py` is used to calculate similarity matrix between each of the brain location pairs.\
+`eval_DCBC.py` is the main entry of the DCBC evaluation project which contains the DCBC class and its function to evaluate a given parcellation.\
+`plotting.py` is the helper function that provides plotting method to decode evaluation result from previous step, and plot the within- and between-parcel correlations with respect to bins.
 
-### 2. Subject data structures
+**2. Subject data structures**
 
 There are 24 subjects data from [MDTB](https://openneuro.org/datasets/ds002105/versions/1.1.0) dataset stored in folder `data`. In each of the subjects sub-folder, it contains two files of left and right-hemisphere of this subject in standard HCP fs-LR 32k template space.
 
+If users want to use own subjects data, please copy to `data` folder and remain the current structures. Because the DCBC evaluation function automatically scan all sub-folders in it and read their hemisphere data.
+
 Each of the hemisphere data has a shape of `(N, k)` matrix, where `N` indicates the number of vertices or brain locations, `k` represents the dimensions of features. In our case, `k = 34` which mean there are 34 task conditions pre-whitenned beta values. And it can be changed to any connectivity measures, such as time-series.
 
-If users want to use own subjects data, please use the plain DCBC calculation directly. See `examples/example_volume.ipynb` or `examples/example_gpu.ipynb`
+**3. Distance metrics**
 
-### 3. Distance metrics
+User can put own distance metrics file into `distanceMarix` folder. Unfortunately, github is not allow us to upload large files but you can still use `compute_distance` function to calculate your own distance metrics.
 
-User can put own distance metrics file into `distanceMarix` folder. Unfortunately, GitHub doesn't allow us to upload large files but you can still use 
-- `utilities.compute_dist()` function to calculate your own volumetric distance, or
-- `utilities.compute_dist_from_surface()` to calculate the surface vertices distances by a given `surf.gii`
+For download our pre-computed distance that used in the paper, please go to [here](http://www.diedrichsenlab.org/toolboxes/toolbox_dcbc.htm).
 
-We also provide several pre-computed distance matrix that can be used in case users don't want to wait the distance computation, 
-please find more details and download at http://www.diedrichsenlab.org/toolboxes/toolbox_dcbc.htm.
 
-### 4. Parcellations
+**4. Parcellations**
 
-We summarized several commonly-used cortical parcellations and converted them all into standard HCP fs-LR 32k template 
-in `parcellations` folder. 
+We summarized several commonly-used cortical parcellations and converted them all into standard HCP fs-LR 32k template in `parcellations` folder. 
 
-User can also find the 32k template files `fs_LR.32k.X.sphere.surf.gii` or `fs_LR.32k.X.midthickness.surf.gii` in the 
-sub-folder (X = L or R, representing left or right hemisphere). We also collected some commonly-used group parcellations
-in `parcellations` folder and they're good examples to test DCBC evaluation is robust across different resolutions.
+You can also find the 32k template files `fs_LR.32k.X.sphere.surf.gii` or `fs_LR.32k.X.midthickness.surf.gii` in the sub-folder (X = L or R, representing left or right hemisphere). We also organised some parcellations if they provide multiple resolutions and it's a good example to test DCBC evaluation is robust across different resolutions.
 
-## Usage example
 
-Please check our sample code and notebooks in `examples` folder. See the readme file in the folder for more details.
+### Usage example
 
-## License
+Please run our sample code `sample.py` or go through the notebook with inline results in `sample.ipynb` for more details.
+
+### Reference and License
 
 Please find out our development license (MIT) in `LICENSE` file.
 
-## Bugs and questions
+### Bugs and questions
 
 Please contact Da at dzhi@uwo.ca if you have any questions about this repository.
 
