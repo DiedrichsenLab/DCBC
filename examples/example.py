@@ -1,10 +1,9 @@
 import numpy as np
-import scipy as sp
 import scipy.io as spio
-import mat73, time
+import time
 import nibabel as nb
-from utilities import compute_dist, convert_numpy_to_torch_sparse
 from dcbc import compute_DCBC
+from utilities import convert_numpy_to_torch_sparse
 
 try:
     import torch as pt

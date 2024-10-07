@@ -20,7 +20,28 @@ except ImportError:
 
 def compute_DCBC(maxDist=35, binWidth=1, parcellation=np.empty([]),
                  func=None, dist=None, weighting=True, backend='torch'):
-    """ Automatically chooses the backend or uses user-specified backend.
+    """ DCBC calculation.
+        Automatically chooses the backend or uses user-specified backend.
+
+    Args:
+        maxDist: The maximum distance for vertices pairs, default 35 mm
+        binWidth: The spatial binning width in mm, default 1 mm
+        parcellation: A 1-d vector tensor of brain parcellation to be
+                      evaluated
+        func: the functional data for evaluating, shape (N, P),
+              N - the dimensionality of underlying data, i.e. the number
+              of task contrasts or the number of resting-state networks
+              P - the number of brain voxels / vertices
+        dist: the pairwise distance matrix between P brain locations. It
+              can be a dense matrix or sparse tensor
+        weighting: If True, the DCBC result is weighted averaged across
+                   spatial bins. If False, it is plain averaged.
+        backend: the backend for the calculation. If "numpy", then following
+                 calculation will be using numpy. If "torch", then following
+                 calculation will be on PyTorch.
+
+    Returns:
+        D: a dictionary contains necessary information for DCBC analysis
     """
     if backend == 'torch' and TORCH_AVAILABLE:
         if type(parcellation) is np.ndarray:
