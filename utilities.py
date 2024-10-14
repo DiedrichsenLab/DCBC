@@ -21,31 +21,17 @@ except ImportError:
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
-def delete_rows_csr(mat, indices):
-    """
-    Remove the rows denoted by ``indices`` form the CSR sparse matrix ``mat``.
-    """
-    if not isinstance(mat, scipy.sparse.csr_matrix):
-        raise ValueError("works only for CSR format -- use .tocsr() first")
-    indices = list(indices)
-    mask = np.ones(mat.shape[0], dtype=bool)
-    mask[indices] = False
-    return mat[mask]
-
-
-def delete_cols_csr(mat, indices):
-    """
-    Remove the cols denoted by ``indices`` form the CSR sparse matrix ``mat``.
-    """
-    if not isinstance(mat, scipy.sparse.csr_matrix):
-        raise ValueError("works only for CSR format -- use .tocsr() first")
-    indices = list(indices)
-    mask = np.ones(mat.shape[1], dtype=bool)
-    mask[indices] = False
-    return mat[:, mask]
-
-
 def sub2ind(array_shape, rows, cols):
+    """ Convert subscripts to linear indices
+
+    Args:
+        array_shape: shape of the array
+        rows: row subscripts
+        cols: colum subscripts
+
+    Returns:
+        linear indices
+    """
     ind = rows*array_shape[1] + cols
     ind[ind < 0] = -1
     ind[ind >= array_shape[0]*array_shape[1]] = -1
@@ -53,6 +39,16 @@ def sub2ind(array_shape, rows, cols):
 
 
 def ind2sub(array_shape, ind):
+    """ Convert linear indices to subscripts
+
+    Args:
+        array_shape: shape of the array
+        ind: linear indices
+
+    Returns:
+        rows: row subscripts
+        cols: column subscripts
+    """
     ind[ind < 0] = -1
     ind[ind >= array_shape[0]*array_shape[1]] = -1
     rows = (ind.astype('int') / array_shape[1])
@@ -61,28 +57,37 @@ def ind2sub(array_shape, ind):
 
 
 def scan_subdirs(path):
-    """Yield directory names not starting with '.' under given path."""
-    subDirs = []
+    """ Scan directory and get all visible folder names.
+
+    Args:
+        path: The directory path to be scanned
+
+    Returns:
+        a list of folder names
+    """
+    sub_dirs = []
     for entry in os.scandir(path):
         if not entry.name.startswith('.') and entry.is_dir():
-            subDirs.append(entry.name)
+            sub_dirs.append(entry.name)
 
-    return subDirs
+    return sub_dirs
 
 
 def euclidean_distance(a, b, decimals=3):
-    """
-    Compute euclidean similarity between samples in a and b.
+    """ Compute euclidean similarity between samples in a and b.
         K(X, Y) = <X, Y> / (||X||*||Y||)
 
-        :param a: ndarray, shape: (n_samples, n_features) input data.
-                  e.g (32492, 34) means 32,492 cortical nodes with 34 task
-                  condition activation profile
-        :param b: ndarray, shape: (n_samples, n_features) input data.
+    Args:
+        a (ndarray): shape of (n_samples, n_features) input data.
+                  e.g (32492, 34) means 32,492 cortical nodes
+                  with 34 task condition activation profile
+        b (ndarray): shape of (n_samples, n_features) input data.
                   If None, b = a
+        decimals: the precision when rounding
 
-        :return:  r - the cosine similarity matrix between nodes. [N * N]
-                  N is the number of cortical nodes
+    Returns:
+        r: the cosine similarity matrix between nodes. [N * N]
+           N is the number of cortical nodes
     """
     p1 = np.einsum('ij,ij->i', a, a)[:, np.newaxis]
     p2 = np.einsum('ij,ij->i', b, b)[:, np.newaxis]
@@ -98,17 +103,22 @@ def compute_dist_from_surface(files, type, max_dist=50, hems='L', sparse=True):
     """ The function of calculating distance matrix between each pair
         of vertices on the cortical surface
 
-        INPUTS:     files:      The geometrical information of the cortical surface.
-                                The default file type is 'surf.gii' as the project is
-                                built upon HCP fs_LR surface space. Currently not
-                                support other types of geometry files
-                    type:       The algorithm used to calculate the distance between
-                                vertex pairs
-                    max_dist:   The maximum distance of
+    Args:
+        files: The geometrical information of the cortical surface.
+               The default file type is 'surf.gii' as the project is
+               built upon HCP fs_LR surface space. It's currently not
+               support other types of geometry files
+        type: The algorithm used to calculate the distance between
+              vertex pairs
+        max_dist: the maximum distance of the pairwise vertices. Set to
+                  0 if the distance of a vertex pair > max_dist
+        hems: specify the hemisphere to compute
+        sparse: return a sparsed matrix if True, Else, dense matrix
 
-        OUTPUT:     The expected distance matrix using given algorithm
-                    shape [N, N] where N indicates the size of vertices, and the
-                    value at N_i and N_j is the distance of the vertices i and j
+    Returns:
+        The expected distance matrix using given algorithm
+        shape [N, N] where N indicates the size of vertices, and the
+        value at N_i and N_j is the distance of the vertices i and j
     """
     dist = []
     if files is None:
@@ -143,6 +153,8 @@ def convert_numpy_to_torch_sparse(dist, device='cpu'):
     Returns:
         a sparsed tensor defined on a given device
     """
+    # assert scipy.sparse.issparse(dist), "The input should be a sparse matrix"
+
     coo_matrix = dist.tocoo()
     indices = pt.LongTensor(np.vstack((coo_matrix.row, coo_matrix.col)))
     values = pt.FloatTensor(coo_matrix.data)
@@ -156,14 +168,16 @@ def cosine(a, b=None):
     """ Compute cosine similarity between samples in a and b.
         K(X, Y) = <X, Y> / (||X||*||Y||)
 
-        :param a: ndarray, shape: (n_samples, n_features) input data.
-                  e.g (32492, 34) means 32,492 cortical nodes with 34 task
-                  condition activation profile
-        :param b: ndarray, shape: (n_samples, n_features) input data.
-                  If None, b = a
+    Args:
+        a (ndarray): shape of (n_samples, n_features) input data.
+                     e.g (32492, 34) means 32,492 cortical nodes
+                     with 34 task condition activation profile
+        b (ndarray): shape of (n_samples, n_features) input data.
+                     If None, b = a
 
-        :return:  r - the cosine similarity matrix between nodes. [N * N]
-                  N is the number of cortical nodes
+    Returns:
+        r: the cosine similarity matrix between nodes. [N * N]
+           N is the number of cortical nodes
     """
     if b is None:
         b = a
@@ -177,22 +191,24 @@ def cosine(a, b=None):
 
 def compute_similarity(files=None, type='cosine', hems='L', sparse=True, mean_centering=True):
     """ The function of calculating similarity matrix between each pair
-        of vertices on the cortical surface
+        of vertices on the cortical surface (Replication only)
 
-        INPUTS:     files:      The file path of geometrical information of the cortical
-                                surface.
-                                The default file type is 'surf.gii' as the project is
-                                built upon HCP fs_LR surface space. Currently not
-                                support other types of geometry files
-                    type:       The algorithm used to calculate the similarity between
-                                vertex pairs
-                    hems:       The hemisphere 'L' - left; 'R' - right
-                    dense:      boolean variable, if True, then output the sparse matrix
-                                                  otherwise, output original matrix
+    Args:
+        files: the file path of geometrical information of the cortical surface.
+               The default file type is 'surf.gii' as the project is
+               built upon HCP fs_LR surface space. It's currently not
+               support other types of geometry files
+        type: the algorithm used to calculate the similarity between
+              vertex pairs
+        hems: The hemisphere 'L' - left; 'R' - right
+        sparse: boolean variable, if True, then output the sparse matrix
+                Otherwise, output original matrix
+        mean_centering: If True, demean the input functional data
 
-        OUTPUT:     The expected similarity (dense) matrix using given algorithm
-                    shape [N, N] where N indicates the size of vertices, and the
-                    value at N_i and N_j is the distance of the vertices i and j
+    Returns:
+        The expected similarity matrix (sparse or dense) using given algorithm
+        shape [N, N] where N indicates the size of vertices, and the
+        value at N_i and N_j is the distance of the vertices i and j
     """
     dist = []
     if files is None:
@@ -233,7 +249,6 @@ def compute_similarity(files=None, type='cosine', hems='L', sparse=True, mean_ce
     return scipy.sparse.csr_matrix(dist) if sparse else dist
 
 
-### distance matrix for volume
 def compute_dist(coord, resolution=2, backend='torch'):
     """ Calculate the distance matrix between each of the voxel pairs by given mask file
         Automatically chooses the backend or uses user-specified backend.
@@ -406,9 +421,22 @@ def compute_var_cov_pt(data, cond='all', mean_centering=True):
     return cov, var
 
 
-#################### Plotting functions
 def plot_single(within, between, subjects, maxDist=35, binWidth=1,
                 within_color='k', between_color='r'):
+    """ helper function to plot a single DCBC results (Replication only)
+
+    Args:
+        within: within-parcel correlation values
+        between: between-parcel correlation values
+        subjects: list of subjects
+        maxDist: the maximum distance for evaluating / plotting
+        binWidth: bin width of the dcbc calculation
+        within_color: with-curve color
+        between_color: between-curve color
+
+    Returns:
+        plot the DCBC evaluation given the results
+    """
     fig = plt.figure()
 
     # Obtain basic info from evaluation result
@@ -419,16 +447,36 @@ def plot_single(within, between, subjects, maxDist=35, binWidth=1,
     y_within = within.reshape(num_sub, -1)
     y_between = between.reshape(num_sub, -1)
 
-    plt.errorbar(x, y_within.mean(0), yerr=y_within.std(0), ecolor=within_color, color=within_color,
-                 elinewidth=0.5, capsize=2, linestyle='dotted', label='within')
-    plt.errorbar(x, y_between.mean(0), yerr=y_between.std(0), ecolor=between_color, color=between_color,
-                 elinewidth=0.5, capsize=2, linestyle='dotted', label='between')
+    plt.errorbar(x, y_within.mean(0), yerr=y_within.std(0),
+                 ecolor=within_color, color=within_color,
+                 elinewidth=0.5, capsize=2, linestyle='dotted',
+                 label='within')
+    plt.errorbar(x, y_between.mean(0), yerr=y_between.std(0),
+                 ecolor=between_color, color=between_color,
+                 elinewidth=0.5, capsize=2, linestyle='dotted',
+                 label='between')
 
     plt.legend(loc='upper right')
     plt.show()
 
 
-def plot_wb_curve(T, path, sub_list=None, hems='all', within_color='k', between_color='r'):
+def plot_wb_curve(T, path, sub_list=None, hems='all', within_color='k',
+                  between_color='r'):
+    """ helper function to plot within/between curves DCBC results
+        (Replication only)
+
+    Args:
+        T: the DCBC evaluation results
+        path: the folder path of the test data
+        sub_list: a list of subjects
+        hems: the hemisphere of the evaluation,
+              'L' - left; or 'R' right
+        within_color: with-curve color
+        between_color: between-curve color
+
+    Returns:
+        plot the DCBC evaluation given the results
+    """
     fig = plt.figure()
 
     # Obtain basic info from evaluation result T

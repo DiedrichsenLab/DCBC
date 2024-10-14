@@ -16,9 +16,9 @@ This project depends on several third party libraries, including: [nibabel](http
 	pip install nibabel scipy numpy matplotlib
 
 Or you can install the package manually from the original binary source as above links.	
-Once you clone the functional fusion repository, you need to add it to your PYTHONPATH, so you can import the functionality.
+Once you have cloned this repository, you need to add it to your PYTHONPATH, so you can import the functionality.
 
-    PYTHONPATH=<your_repo_absolute_path>/HierarchBayesParcel:${PYTHONPATH}
+    PYTHONPATH=<repository_path>/DCBC:${PYTHONPATH}
     export PYTHONPATH
 
 To use GPU acceleration, please ensure to install the compatible PyTorch and CUDA version. Details can be found
@@ -92,9 +92,15 @@ User can also find the 32k template files `fs_LR.32k.X.sphere.surf.gii` or `fs_L
 sub-folder (X = L or R, representing left or right hemisphere). We also collected some commonly-used group parcellations
 in `parcellations` folder and they're good examples to test DCBC evaluation is robust across different resolutions.
 
+We always welcome contributors to this group-level cortical parcellation collection. If you want to contribute your 
+parcellation to the evaluation, please contact Diedrichsen Lab for instructions.
+
+For users interested in cerebellar parcellations in volume space, please find more details in the 
+[cerebellar atlases](https://github.com/DiedrichsenLab/cerebellar_atlases) repository.
+
 ## Usage example
 
-Please check our sample code and notebooks in `examples` folder. See the readme file in the folder for more details.
+Please check our sample code and notebooks in `/examples` folder. See the readme file in the folder for more details.
 
 ## License
 
@@ -102,5 +108,5 @@ Please find out our development license (MIT) in `LICENSE` file.
 
 ## Bugs and questions
 
-Please contact Da at dzhi@uwo.ca if you have any questions about this repository.
+Please contact Da Zhi [dzhi@uwo.ca]() if you have any questions about this repository.
 
