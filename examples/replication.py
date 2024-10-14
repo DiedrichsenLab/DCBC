@@ -3,6 +3,7 @@
 '''
 Created on Mon Aug 17 11:31:32 2020
 
+An example of how to use DCBC function to evaluation expected cortical parcellations
 Distance-Controlled Boundaries Coefficient (DCBC) evaluation
 for a functional parcellation of brain cortex
 
@@ -30,12 +31,13 @@ M:                    Gifti object- can be saved as a *.func.gii or *.label.gii 
 Author: Da Zhi
 '''
 
-import os
+import os, warnings
 import numpy as np
 import scipy
 import scipy.io as spio
 import nibabel as nb
-import warnings
+from utilities import plot_wb_curve, compute_var_cov
+
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
@@ -70,7 +72,7 @@ def scan_subdirs(path):
         if not entry.name.startswith('.') and entry.is_dir():
             subDirs.append(entry.name)
 
-    return subDirs
+    return sorted(subDirs)
 
 
 def load_subjectData(path, hemis='L'):
@@ -104,59 +106,22 @@ def load_subjectData(path, hemis='L'):
     return data
 
 
-def compute_var_cov(data, cond='all', mean_centering=True):
-    """
-        Compute the affinity matrix by given kernel type,
-        default to calculate Pearson's correlation between all vertex pairs
-
-        :param data: subject's connectivity profile, shape [N * k]
-                     N - the size of vertices (voxel)
-                     k - the size of activation conditions
-        :param cond: specify the subset of activation conditions to evaluation
-                    (e.g condition column [1,2,3,4]),
-                     if not given, default to use all conditions
-        :param mean_centering: boolean value to determine whether the given subject data
-                               should be mean centered
-
-        :return: cov - the covariance matrix of current subject data. shape [N * N]
-                 var - the variance matrix of current subject data. shape [N * N]
-    """
-    if mean_centering:
-        mean = data.mean(axis=1)
-        data = data - mean[:, np.newaxis]  # mean centering
-    else:
-        data = data
-
-    # specify the condition index used to compute correlation, otherwise use all conditions
-    if cond != 'all':
-        data = data[:, cond]
-    elif cond == 'all':
-        data = data
-    else:
-        raise TypeError("Invalid condition type input! cond must be either 'all'"
-                        " or the column indices of expected task conditions")
-
-    k = data.shape[1]
-    sd = np.sqrt(np.sum(np.square(data), axis=1) / k)  # standard deviation
-    sd = np.reshape(sd, (sd.shape[0], 1))
-    var = np.matmul(sd, sd.transpose())
-    cov = np.matmul(data, data.transpose()) / k
-    return cov, var
-
-
 class DCBC:
     def __init__(self, hems='all', maxDist=35, binWidth=1, parcellation=np.empty([]),
                  dist_file=None, weighting=True):
         """
         Constructor of DCBC class
-        :param hems:        Hemisphere to test. 'L' - left hemisphere; 'R' - right hemisphere; 'all' - both hemispheres
+        :param hems:        Hemisphere to test. 'L' - left hemisphere;
+                                                'R' - right hemisphere;
+                                                'all' - both hemispheres
         :param maxDist:     The maximum distance for vertices pairs
         :param binWidth:    The spatial binning width in mm, default 1 mm
         :param parcellation:
-        :param dist_file:   The path of distance metric of vertices pairs, for example Dijkstra's distance, GOD distance
+        :param dist_file:   The path of distance metric of vertices pairs,
+                            for example Dijkstra's distance, GOD distance
                             Euclidean distance. Dijkstra's distance as default
-        :param weighting:   Boolean value. True - add weighting scheme to DCBC (default)
-                                           False - no weighting scheme to DCBC
+        :param weighting:   Boolean value. True - add weighting (default)
+                                           False - no weighting
         """
         self.hems = hems
         self.maxDist = maxDist
@@ -173,7 +138,7 @@ class DCBC:
         :return: dict T that contain all needed DCBC evaluation results
         """
         numBins = int(np.floor(self.maxDist / self.binWidth))
-        subjectsDir = scan_subdirs('data')
+        subjectsDir = scan_subdirs('../data')
 
         if self.dist_file is not None:
             dist = spio.loadmat(self.dist_file)['avrgDs']
@@ -192,16 +157,15 @@ class DCBC:
 
         D = dict()
         for h in hems:
-            print('evaluating %s hemisphere of ' % h, end=' ')
             for dir in subjectsDir:
-                print('%s ' % dir, end=' ')
-                path = os.path.join('data', dir)
+                print(f'Evaluating {h} hemisphere for subject {dir}')
+                path = os.path.join('../data', dir)
                 data = load_subjectData(path, hemis=h)
 
                 # remove nan value and medial wall from subject data
                 nanIdx = np.union1d(np.unique(np.where(np.isnan(data))[0]), np.where(parcellation == 0)[0])
                 data = np.delete(data, nanIdx, axis=0)
-                cov, var = compute_var_cov(data)  # This line can be changed to use compute_corr()
+                cov, var = compute_var_cov(data, backend='numpy')  # This line can be changed to use compute_corr()
 
                 # remove the nan value and medial wall from dist file
                 this_dist = delete_rows_csr(dist, nanIdx)
@@ -250,8 +214,20 @@ class DCBC:
                     "DCBC": DCBC
                 }
 
-            print('\n Done evaluation of %s hemisphere.' % h)
         return D
 
 
-
+# if __name__ == "__main__":
+#     print('Start evaluating DCBC sample code ...')
+#
+#     # step 1: load parcellation
+#     mat = nb.load('../parcellations/Power2011.32k.L.label.gii')
+#     parcels = [x.data for x in mat.darrays][0]
+#
+#     # step 2: DCBC evaluation
+#     T = DCBC(hems='L', maxDist=35, binWidth=1,
+#              dist_file='../distanceMatrix/distAvrg_sp.mat').evaluate(parcels)
+#
+#     # step 3: plot your results
+#     plot_wb_curve(T, path='data', hems='all')
+#     print('Done')
