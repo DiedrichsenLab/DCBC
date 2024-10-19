@@ -336,7 +336,7 @@ def compute_var_cov(data, cond='all', mean_centering=True, backend='torch'):
     """
     if backend == 'torch' and TORCH_AVAILABLE:
         if type(data) is np.ndarray:
-            func = pt.tensor(func, dtype=pt.get_default_dtype())
+            data = pt.tensor(data, dtype=pt.get_default_dtype())
         assert type(data) is pt.Tensor, "Input data must be pytorch tensor!"
         return compute_var_cov_pt(data, cond=cond, mean_centering=mean_centering)
     elif backend == 'numpy' or not TORCH_AVAILABLE:
