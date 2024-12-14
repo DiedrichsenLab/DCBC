@@ -122,7 +122,9 @@ def compute_dist_from_surface(files, type, max_dist=50, hems='L', sparse=True):
     """
     dist = []
     if files is None:
-        file_name = '../parcellations/fs_LR_32k template/fs_LR.32k.%s.sphere.surf.gii' % hems
+        file_name = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 'parcellations', 'fs_LR_32k_template', 
+                                 'fs_LR.32k.%s.sphere.surf.gii' % hems)
     else:
         file_name = files
 
