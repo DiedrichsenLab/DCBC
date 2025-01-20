@@ -19,7 +19,8 @@ except ImportError:
 
 
 def compute_DCBC(maxDist=35, binWidth=1, parcellation=np.empty([]),
-                 func=None, dist=None, weighting=True, backend='torch'):
+                 func=None, dist=None, weighting=True, backend='torch', 
+                 batch_size=None):
     """ DCBC calculation.
         Automatically chooses the backend or uses user-specified backend.
 
@@ -52,7 +53,8 @@ def compute_DCBC(maxDist=35, binWidth=1, parcellation=np.empty([]),
             "All inputs must be pytorch tensors!"
         return compute_DCBC_pt(maxDist=maxDist, binWidth=binWidth,
                                parcellation=parcellation, func=func,
-                               dist=dist, weighting=weighting)
+                               dist=dist, weighting=weighting, 
+                               batch_size=batch_size)
     elif backend == 'numpy' or not TORCH_AVAILABLE:
         return compute_DCBC_np(maxDist=maxDist, binWidth=binWidth,
                                parcellation=parcellation, func=func,
@@ -86,7 +88,7 @@ def compute_DCBC_np(maxDist=35, binWidth=1, parcellation=np.empty([]),
     cov, var = compute_var_cov(func, backend='numpy')
 
     # remove the nan value and medial wall from dist file
-    row, col, distance = sp.sparse.find(dist)
+    row, col, distance = sp.sparse.find(dist_scipy)
 
     num_within, num_between, corr_within, corr_between = [], [], [], []
     for i in range(numBins):
@@ -134,7 +136,7 @@ def compute_DCBC_np(maxDist=35, binWidth=1, parcellation=np.empty([]),
 
 
 def compute_DCBC_pt(maxDist=35, binWidth=1, parcellation=np.empty([]),
-                 func=None, dist=None, weighting=True):
+                 func=None, dist=None, weighting=True, batch_size=None):
     """ DCBC calculation (PyTorch version)
 
     Args:
@@ -155,7 +157,7 @@ def compute_DCBC_pt(maxDist=35, binWidth=1, parcellation=np.empty([]),
         D: a dictionary contains necessary information for DCBC analysis
     """
     numBins = int(np.floor(maxDist / binWidth))
-    cov, var = compute_var_cov(func, backend='torch')
+    cov, var = compute_var_cov(func, backend='torch', batch_size=batch_size)
     # cor = np.corrcoef(func)
     if not dist.is_sparse:
         dist = dist.to_sparse()
