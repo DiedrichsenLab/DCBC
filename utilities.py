@@ -328,7 +328,8 @@ def compute_dist_np(coord, resolution=2):
 
 
 ### variance / covariance
-def compute_var_cov(data, cond='all', mean_centering=True, backend='torch'):
+def compute_var_cov(data, cond='all', mean_centering=True, backend='torch', 
+                    batch_size=None):
     """ Compute the variance and covariance for a given data matrix.
         Automatically chooses the backend or uses user-specified backend.
 
@@ -352,7 +353,8 @@ def compute_var_cov(data, cond='all', mean_centering=True, backend='torch'):
         if type(data) is np.ndarray:
             data = pt.tensor(data, dtype=pt.get_default_dtype())
         assert type(data) is pt.Tensor, "Input data must be pytorch tensor!"
-        return compute_var_cov_pt(data, cond=cond, mean_centering=mean_centering)
+        return compute_var_cov_pt(data, cond=cond, mean_centering=mean_centering, 
+                                  batch_size=batch_size)
     elif backend == 'numpy' or not TORCH_AVAILABLE:
         return compute_var_cov_np(data, cond=cond, mean_centering=mean_centering)
     else:
@@ -400,7 +402,8 @@ def compute_var_cov_np(data, cond='all', mean_centering=True):
     return cov, var
 
 
-def compute_var_cov_pt(data, cond='all', mean_centering=True):
+def compute_var_cov_pt(data, cond='all', mean_centering=True, 
+                       batch_size=None):
     """ Compute the variance and covariance for a given data matrix.
         (PyTorch GPU version)
 
@@ -428,7 +431,17 @@ def compute_var_cov_pt(data, cond='all', mean_centering=True):
         raise TypeError("Invalid condition type input! cond must be either 'all'"
                         " or the column indices of expected task conditions")
     k = data.shape[1]
-    cov = pt.matmul(data, data.T) / (k - 1)
+
+    if batch_size:
+        p = data.shape[0]
+        cov = pt.zeros((p, p))   
+        for start in range(0, p, batch_size):
+            end = min(start + batch_size, p)
+            batch_data = data[start:end]
+            cov[start:end, :] = pt.matmul(batch_data, data.T) / (k - 1)
+    else:
+        cov = pt.matmul(data, data.T) / (k - 1)
+    
     # sd = data.std(dim=1).reshape(-1, 1)  # standard deviation
     sd = pt.sqrt(pt.sum(data ** 2, dim=1, keepdim=True) / (k - 1))
     var = pt.matmul(sd, sd.T)
