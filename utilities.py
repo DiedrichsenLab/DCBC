@@ -251,13 +251,12 @@ def compute_similarity(files=None, type='cosine', hems='L', sparse=True, mean_ce
     return scipy.sparse.csr_matrix(dist) if sparse else dist
 
 
-def compute_dist(coord, resolution=2, backend='torch'):
+def compute_dist(coord, backend='torch'):
     """ Calculate the distance matrix between each of the voxel pairs by given mask file
         Automatically chooses the backend or uses user-specified backend.
 
     Args:
-        coord: the matrix of all N voxels coordinates x,y,z. Shape N * 3
-        resolution: the resolution of .nii file. Default 2*2*2 mm
+        coord: the matrix of all N world coordinates x,y,z in mm. Shape N * 3
         backend: the backend for the calculation. If "numpy", then following
                  calculation will be using numpy. If "torch", then following
                  calculation will be on PyTorch.
@@ -269,20 +268,19 @@ def compute_dist(coord, resolution=2, backend='torch'):
         if type(coord) is np.ndarray:
             coord = pt.tensor(coord, dtype=pt.get_default_dtype())
         assert type(coord) is pt.Tensor, "Input coord must be pytorch tensor!"
-        return compute_dist_pt(coord, resolution=resolution)
+        return compute_dist_pt(coord)
     elif backend == 'numpy' or not TORCH_AVAILABLE:
-        return compute_dist_np(coord, resolution=resolution)
+        return compute_dist_np(coord)
     else:
         raise ValueError("Torch not available and no valid backend specified!")
 
 
-def compute_dist_pt(coord, resolution=2):
+def compute_dist_pt(coord):
     """ Calculate the distance matrix between each of the voxel pairs by given mask file
         (PyTorch version)
 
     Args:
-        coord: the tensor of all N voxels coordinates x,y,z. Shape N * 3
-        resolution: the resolution of .nii file. Default 2*2*2 mm
+        coord: the tensor of all N world coordinates x,y,z in mm. Shape N * 3
 
     Returns:
         a distance tensor of N * N, where N represents the number of masked voxels
@@ -294,16 +292,15 @@ def compute_dist_pt(coord, resolution=2):
     D = pt.zeros((num_points, num_points))
     for i in range(3):
         D = D + (coord[:, i].reshape(-1, 1) - coord[:, i]) ** 2
-    return pt.sqrt(D) * resolution
+    return pt.sqrt(D) 
 
 
-def compute_dist_np(coord, resolution=2):
+def compute_dist_np(coord):
     """ Calculate the distance matrix between each of the voxel pairs by given mask file
         (Numpy version)
 
     Args:
-        coord: the ndarray of all N voxels coordinates x,y,z. Shape N * 3
-        resolution: the resolution of .nii file. Default 2*2*2 mm
+        coord: the ndarray of all N world coordinates x,y,z in mm. Shape N * 3
 
     Returns:
         a distance matrix of N * N, where N represents the number of masked voxels
@@ -312,7 +309,7 @@ def compute_dist_np(coord, resolution=2):
     D = np.zeros((num_points, num_points))
     for i in range(3):
         D = D + (coord[:, i].reshape(-1, 1) - coord[:, i]) ** 2
-    return np.sqrt(D) * resolution
+    return np.sqrt(D) 
 
 
 ### variance / covariance
